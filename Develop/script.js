@@ -3,16 +3,12 @@ let generateBtn = document.querySelector("#generate");
  
   //set password length 8 - 128 characters
   let pwLength = prompt("Choose a password length of at least 8 characters, but not more than 128");
-  if (pwLength === null){
-    alert("Please enter desired character length for generated password");
-    } else if (pwLength < 8){
-      alert("Please enter desired character length of at least 8 characters");
-     } else if (pwLength > 128){
-     alert("Please enter desired character length of a maximum of 128 characters");
-     }else if (isNaN){
+  if (pwLength<8&&pwLength>128){
+    alert("Please enter a number from 8 to 128 for desired character length");
+     }else if (isNaN(pwLength)){
      prompt("Please enter a number from 8 to 128 for desired character length");
      } 
-   
+ 
 let choiceArray = [];
 
   //confirm if user wants lowercase characters
