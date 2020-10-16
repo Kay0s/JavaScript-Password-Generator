@@ -43,6 +43,15 @@ if (inclSpecialConfirm) {
   choiceArray.push("inclSpecialChosen");
   }
 
+
+// password choices -  uppercase, lowercase, numerical and special characters
+ let upperCaseArray  = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+ let lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+ let inclNumericArray = [0,1,2,3,0,4,5,6,7,8,9];
+ //info from OWASP Foundation
+ let inclSpecialArray = ["!", "\s", "#", "$", "%", "&", "/'", "(", ")", "*", "+", ",", "-", ".", "/:", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+ 
+
 // generate password
 function generatePassword() {
   let password = "";
@@ -51,13 +60,23 @@ function generatePassword() {
   if (option === "lowerCaseChosen"){
   password += lowerCaseArray[Math.floor(Math.random()*26)];
   } if (option === "upperCaseChosen"){
-    password += upperCaseArray[Math.floor(Math.random()*26)];
-  }
+  password += upperCaseArray[Math.floor(Math.random()*26)];
+  }if (option === "inclNumericChosen"){
+    password += inclNumericArray[Math.floor(Math.random()*11)];
+  }if (option === "inclSpecialChosen"){
+  password += inclSpecialArray[Math.floor(Math.random()*31)];
+   }
+
+// for loops to generate password
+for (passwordGenerated let i = 0; i <= pwLength; i++);{
+    lowerCaseArray[i];
+}for (passwordGenerated let i = 0; i <= pwLength; i++);{
+    upperCaseArray[i];
+}for (passwordGenerated let i = 0; i <= pwLength; i++);{
+     inclNumericArray[i];
+}for (passwordGenerated let i = 0; i <= pwLength; i++);{
+     inclSpecialArray[i];
 }
-
-// for x=0 if x less than pwLength x++
-
-//return password in generate password
 
 // Write password to the #password input
 function writePassword() {
@@ -70,34 +89,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
- // password variables -  uppercase, lowercase, numerical and special characters
- let upperCaseArray  = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
- let lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
- let inclNumericArray = [0,1,2,3,0,4,5,6,7,8,9];
- //info from OWASP Foundation
- let inclSpecialArray = ["!", "\s", "#", "$", "%", "&", "/'", "(", ")", "*", "+", ",", "-", ".", "/:", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
- 
-
-//create for loop to choose password characters if upperCase, lowerCase, inclNumeric, inclSpecial are chosen
-// for (let i = 0; i <= pwLength; i++){
-//   let password = upperCase.concat(lowerCase, inclNumeric, inclSpecial);
-// }
-
-// //create for loop to choose password characters if upperCase, lowerCase, and inclNumeric 
-// for (let i = 0; i <= pwLength; i++){
-//   let password = upperCase.concat(lowerCase, inclNumeric);
-// }
-
-// //create for loop to choose password characters if upperCase and lowerCase are chosen
-// for (let i = 0; i <= pwLength; i++){
-//  let password = upperCase.concat(lowerCase);
-// }
-
-// //create for loop to choose password characters if upperCase is chosen
-// for (let i = 0; i <= pwLength; i++){
-//   let password = upperCase;
-//  } 
-
-
