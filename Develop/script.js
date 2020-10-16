@@ -11,7 +11,7 @@ let generateBtn = document.querySelector("#generate");
      alert("Please enter desired character length of a maximum of 128 characters");
      }else if (isNaN){
      prompt("Please enter a number from 8 to 128 for desired character length");
-     }
+     } 
    
 let choiceArray = [];
 
@@ -74,7 +74,7 @@ for (i = 0; i <= pwLength; i++);{
 }for ( i = 0; i <= pwLength; i++);{
      inclSpecialArray[i] = password
 }
-
+}
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
