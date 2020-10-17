@@ -1,15 +1,25 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
- 
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+
+// generate password
+
+function generatePassword() {
+  password = "";
+
   //set password length 8 - 128 characters
   let pwLength = prompt("Choose a password length of at least 8 characters, but not more than 128");
-     if (pwLength<=7&&pwLength>=129){
-     alert("Please enter a number from 8 to 128 for desired character length");
+     if (pwLength <= 7 || pwLength >= 129){
+     prompt("A number lower than 8 or higher than 128 was entered.  Please choose a password length of at least 8 characters, but not more than 128");
      }while (isNaN(pwLength)){
      prompt("Please enter a number from 8 to 128 for desired character length");
      } 
-     
-let choiceArray = [];
+  
+    let choiceArray = [];
 
   //confirm if user wants lowercase characters
   let lowerCaseConfirm = confirm("Use lowercase characters?");
@@ -44,60 +54,31 @@ if (inclSpecialConfirm) {
  //info from OWASP Foundation
  let inclSpecialArray = ["!", "\s", "#", "$", "%", "&", "/'", "(", ")", "*", "+", ",", "-", ".", "/:", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
  
+let newVariable = pwLength * 1
 
-// generate password
-function generatePassword() {
-  password = "";
+  for (let i=0; i < pwLength; i++){
+    let option = choiceArray[Math.floor(Math.random()*choiceArray.length)];
+    if (option === "lowerCaseChosen"){
+    password += lowerCaseArray[Math.floor(Math.random()*26)];
+    } if (option === "upperCaseChosen"){
+    password += upperCaseArray[Math.floor(Math.random()*26)];
+    }if (option === "inclNumericChosen"){
+      password += inclNumericArray[Math.floor(Math.random()*11)];
+    }if (option === "inclSpecialChosen"){
+    password += inclSpecialArray[Math.floor(Math.random()*31)];
+    }
 
-  let option = choiceArray[Math.floor(Math.random()*choiceArray.length)];
-  if (option === "lowerCaseChosen"){
-  password += lowerCaseArray[Math.floor(Math.random()*26)];
-  } if (option === "upperCaseChosen"){
-  password += upperCaseArray[Math.floor(Math.random()*26)];
-  }if (option === "inclNumericChosen"){
-    password += inclNumericArray[Math.floor(Math.random()*11)];
-  }if (option === "inclSpecialChosen"){
-  password += inclSpecialArray[Math.floor(Math.random()*31)];
   }
 
-// for loops to generate password
-let i = 0;
-while (i <= pwLength){
-      if(i===1) {
-        i++;
-        continue;
-      }lowerCaseArray[i];
-      console.log(i);
-}while (i <= pwLength){
-      if(i===1) {
-      i++;
-     continue;
-    }upperCaseArray[i];
-      console.log(i);     
-}while (i <= pwLength){
-      if(i===1) {
-        i++;
-        continue;
-      }inclNumericArray[i];
-      console.log(i);     
-}while (i <= pwLength){
-       if(i===1) {
-        i++;
-      continue;
-    }inclSpecialArray[i];
-       console.log(i);
-     }
+// password = lowerCaseArray[i].concat(upperCaseArray[i], inclNumericArray[i], inclSpecialArray[i]);
+console.log(password);
 }
-password = lowerCaseArray[i].concat(upperCaseArray[i], inclNumericArray[i], inclSpecialArray[i]);
-
 // Write password to the #password input
 function writePassword() {
+  console.log("button pressed - firing write password");
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
