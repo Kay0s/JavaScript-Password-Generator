@@ -88,7 +88,7 @@ while (i <= pwLength){
        console.log(i);
      }
 }
-password = lowerCaseArray.concat(upperCaseArray, inclNumericArray, inclSpecialArray);
+password = lowerCaseArray[i].concat(upperCaseArray[i], inclNumericArray[i], inclSpecialArray[i]);
 
 // Write password to the #password input
 function writePassword() {
