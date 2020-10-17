@@ -3,12 +3,12 @@ let generateBtn = document.querySelector("#generate");
  
   //set password length 8 - 128 characters
   let pwLength = prompt("Choose a password length of at least 8 characters, but not more than 128");
-  if (pwLength<8&&pwLength>128){
-    alert("Please enter a number from 8 to 128 for desired character length");
-     }else if (isNaN(pwLength)){
+     if (pwLength<=7&&pwLength>=129){
+     alert("Please enter a number from 8 to 128 for desired character length");
+     }while (isNaN(pwLength)){
      prompt("Please enter a number from 8 to 128 for desired character length");
      } 
- 
+     
 let choiceArray = [];
 
   //confirm if user wants lowercase characters
@@ -47,7 +47,7 @@ if (inclSpecialConfirm) {
 
 // generate password
 function generatePassword() {
-  let password = "";
+  password = "";
 
   let option = choiceArray[Math.floor(Math.random()*choiceArray.length)];
   if (option === "lowerCaseChosen"){
@@ -58,19 +58,25 @@ function generatePassword() {
     password += inclNumericArray[Math.floor(Math.random()*11)];
   }if (option === "inclSpecialChosen"){
   password += inclSpecialArray[Math.floor(Math.random()*31)];
-   }
+  }
 
 // for loops to generate password
-for (i = 0; i <= pwLength; i++);{
-    lowerCaseArray[i] = password;
-}for (i = 0; i <= pwLength; i++);{
-    upperCaseArray[i] = password;
-}for (i = 0; i <= pwLength; i++);{
-     inclNumericArray[i] = password
-}for ( i = 0; i <= pwLength; i++);{
-     inclSpecialArray[i] = password
-}
-}
+for (let i = 0; i <= pwLength; i++)
+    if (lowerCaseArray){
+      lowerCaseArray[i];
+    }for (let i = 0; i <= pwLength; i++)
+    if (upperCaseArray){
+      upperCaseArray[i];
+}for (let i = 0; i <= pwLength; i++)
+    if (numericArray){
+      numericArray[i];
+}for (let i = 0; i <= pwLength; i++)
+     if (inclSpecialArray){
+       inclSpecialArray[i]
+     }
+
+password = lowerCaseArray[i].concat(upperCaseArray.numericArray.inclSpecialArray)
+
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
