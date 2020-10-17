@@ -61,18 +61,31 @@ function generatePassword() {
   }
 
 // for loops to generate password
-for (let i = 0; i <= pwLength; i++)
-    if (lowerCaseArray){
-      lowerCaseArray[i];
-    }for (let i = 0; i <= pwLength; i++)
-    if (upperCaseArray){
-      upperCaseArray[i];
-}for (let i = 0; i <= pwLength; i++)
-    if (inclNumericArray){
-      inclNumericArray[i];
-}for (let i = 0; i <= pwLength; i++)
-     if (inclSpecialArray){
-       inclSpecialArray[i]
+let i = 0;
+while (i <= pwLength){
+      if(i===1) {
+        i++;
+        continue;
+      }lowerCaseArray[i];
+      console.log(i);
+}while (i <= pwLength){
+      if(i===1) {
+      i++;
+     continue;
+    }upperCaseArray[i];
+      console.log(i);     
+}while (i <= pwLength){
+      if(i===1) {
+        i++;
+        continue;
+      }inclNumericArray[i];
+      console.log(i);     
+}while (i <= pwLength){
+       if(i===1) {
+        i++;
+      continue;
+    }inclSpecialArray[i];
+       console.log(i);
      }
 }
 password = lowerCaseArray.concat(upperCaseArray, inclNumericArray, inclSpecialArray);
