@@ -68,14 +68,14 @@ for (let i = 0; i <= pwLength; i++)
     if (upperCaseArray){
       upperCaseArray[i];
 }for (let i = 0; i <= pwLength; i++)
-    if (numericArray){
-      numericArray[i];
+    if (inclNumericArray){
+      inclNumericArray[i];
 }for (let i = 0; i <= pwLength; i++)
      if (inclSpecialArray){
        inclSpecialArray[i]
      }
-
-password = lowerCaseArray[i].concat(upperCaseArray.numericArray.inclSpecialArray)
+}
+password = lowerCaseArray.concat(upperCaseArray, inclNumericArray, inclSpecialArray);
 
 // Write password to the #password input
 function writePassword() {
