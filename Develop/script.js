@@ -22,6 +22,9 @@ function generatePassword() {
     let choiceArray = [];
 
   //confirm if user wants lowercase characters
+  // if (lowerCaseConfirm + upperCaseconfirm + inclSpecialConfirm + inclNumericConfirm === false){
+
+
   let lowerCaseConfirm = confirm("Use lowercase characters?");
   if (lowerCaseConfirm) {
   choiceArray.push("lowerCaseChosen");
@@ -43,8 +46,11 @@ function generatePassword() {
 //confirm if user wants special characters
 let inclSpecialConfirm = confirm("Use special characters?");
 if (inclSpecialConfirm) {
-  choiceArray.push("inclSpecialChosen");
-  }
+  choiceArray.push("inclSpecialChosen");}
+  
+if (choiceArray.length === 0){
+    alert("A parameter must be chosen.  Please press the Generate Password button to restart.");}
+else{
 
 
 // password choices -  uppercase, lowercase, numerical and special characters
@@ -66,19 +72,21 @@ let newVariable = pwLength * 1
       password += inclNumericArray[Math.floor(Math.random()*11)];
     }if (option === "inclSpecialChosen"){
     password += inclSpecialArray[Math.floor(Math.random()*31)];
-    }
-
+    } 
+    
   }
 
 // password = lowerCaseArray[i].concat(upperCaseArray[i], inclNumericArray[i], inclSpecialArray[i]);
 console.log(password);
+return password;
+};
 }
 // Write password to the #password input
 function writePassword() {
   console.log("button pressed - firing write password");
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  document.getElementById("password").innerHTML = password;
+  passwordText.innerText = password;
 
 }
